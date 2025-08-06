@@ -1,0 +1,6 @@
+flask
+pysentimiento
+torch
+transformers
+deep-translator
+gunicorn
