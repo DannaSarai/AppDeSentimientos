@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from pysentimiento import create_analyzer
 from deep_translator import GoogleTranslator
+import os
 
 app = Flask(__name__)
 analyzer = create_analyzer(task="sentiment", lang="es")
@@ -41,4 +42,5 @@ def index():
                            texto=texto, texto_traducido=traduccion, historial=historial)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
